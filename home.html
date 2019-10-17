@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Demo</title>
+	<link rel="stylesheet" href="estilo.css" />
+	<script src="jquery.min.js"></script>
+	<script>
+	$(function () {
+		/*$("#left").click(function() {
+		$("#personagem").toggle('slow', function() {
+		$("#right").toggle('slow');
+	});
+});
+
+$("#up").click(function() {
+$("#personagem").fadeTo('fast', 0.3);
+});
+
+$("#right").click(function() {
+$("#up-right").slideToggle();
+});*/
+
+$("#right").click(function () {
+	$("#personagem").animate({
+		left: '+=50px'
+		//bottom: '+=50px'
+	});
+
+	if($("#personagem").offset().left >= 700){
+		$("#personagem").animate({
+			left: '-=50px'
+			//bottom: '+=50px'
+		});
+	}
+});
+
+$("#left").click(function () {
+	$("#personagem").animate({
+		left: '-=50px'
+	});
+	if($("#personagem").offset().left <= 280){
+		$("#personagem").animate({
+			left: '+=50px'
+			//bottom: '+=50px'
+		});
+	}
+});
+
+$("#up").click(function () {
+	$("#personagem").animate({
+		bottom: '+=50px'
+	}, 'slow', function() {
+		$(this).animate({
+			bottom: '33px'
+		});
+	});
+	//alert($("#personagem").offset().top);
+	if($("#personagem").offset().top  <= 190){
+
+		$("#personagem").animate({
+
+		}, 'slow', function() {
+			$(this).animate({
+				bottom: '33px'
+			});
+		});
+	}
+});
+
+
+$("#up-right").click(function () {
+
+		if(($("#personagem").offset().left >= 729.5) || ($('#personagem').offset().top <=295)){
+			alert($("#personagem").offset().left);
+			$("#personagem").animate({
+				left: '+=120px',
+				bottom: '+=50px'
+			},  function() {
+				$(this).animate({
+					bottom: '145px'
+				});
+			});
+		}else
+			if(($("#personagem").offset().left > 729.5) || ($('#personagem').offset().top <=295)){
+				$("#personagem").animate({
+					left: '-=50px'
+					//bottom: '+=50px'
+				});
+		}
+		else{
+			$("#personagem").animate({
+				left: '+=50px',
+				bottom: '+=50px'
+			}, 'slow', function() {
+				$(this).animate({
+					bottom: '33px'
+				});
+			});
+		}
+});
+
+$(document).keydown(function (e) {
+	if (e.which == 39 || e.which == 68) { //direita
+		//alert($("#personagem").offset().left);
+		$("#personagem").animate({
+			left: '+=50px'
+		});
+		if($("#personagem").offset().left >= 700){
+			$("#personagem").animate({
+				left: '-=50px'
+				//bottom: '+=50px'
+			});
+		}
+	} else if (e.which == 37 || e.which == 65) { //esquerda
+		//alert($("#personagem").offset().left);
+		$("#personagem").animate({
+			left: '-=50px'
+		});
+		if($("#personagem").offset().left <= 280){
+			$("#personagem").animate({
+				left: '+=50px'
+				//bottom: '+=50px'
+			});
+		}
+	} else if (e.which == 38 || e.which == 87) { //up
+		//alert($("#personagem").offset().top);
+		if((e.which == 39 || e.which==68) && (e.which == 38 || e.which == 87)){
+			if($("#personagem").offset().left >= 700){
+				if($("#personagem").offset().top  <= 295){
+					$("#personagem").animate({
+
+					}, 'slow', function() {
+						$(this).animate({
+							bottom: '$("#personagem").offset().left'
+						});
+					});
+				}
+			}
+		}
+
+		else{
+			$("#personagem").animate({
+				bottom: '+=50px'
+			}, 'slow', function() {
+				$(this).animate({
+					bottom: '33px'
+				});
+			});
+		}
+
+		if($("#personagem").offset().top  <= 190){
+			$("#personagem").animate({
+
+			}, 'slow', function() {
+				$(this).animate({
+					bottom: '33px'
+				});
+			});
+		}
+
+
+	}
+	//alert(e.keyCode);
+});
+
+});
+</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="cenario">
+			<div id="personagem"></div>
+		</div>
+		<section id="controles">
+			<div id="left"></div>
+			<div id="right"></div>
+			<div id="up"></div>
+			<div id="up-right"></div>
+		</section>
+	</div>
+</body>
+
+</html>

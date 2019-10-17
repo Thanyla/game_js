@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+  max-width: 100%;
+  max-height: 100%;
+  
+}
+
+#container {
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cenario {
+    width: 800px;
+    height: 450px;
+    margin: 50px auto 20px;
+    background: url(background/dark.png);
+    border: 2px solid burlywood;
+    position: relative;
+}
+
+#personagem {
+    height: 120px;
+    width: 100px;
+    background: url(personagens/personagem.png) 0 0;
+    position: absolute;
+    bottom: 33px;
+    left: 50px;
+}
+
+#controles {
+    position: relative;
+    left: 390px;
+}
+
+#controles div {
+    height: 65px;
+    width: 65px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#controles div:hover {
+    border: 1px solid darkgreen;
+}
+
+#left {
+    background: url(controles/left.png);
+    top: 70px;
+}
+
+#right {
+    background: url(controles/right.png);
+    top: 70px;
+    left: 70px;
+}
+
+#up {
+    background: url(controles/up.png);
+    left: 35px;
+}
+
+#up-right {
+    background: url(controles/up-right.png);
+    left: 105px;
+}
